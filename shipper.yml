@@ -1,0 +1,12 @@
+services:
+  frontend:
+    path: "../sample-fronted"
+    before_build:
+      - "yarn build"
+    repo: "<dockerhub-nickname>/sample-fronted"
+  backend:
+    path: "../sample-backend"
+    repo: "<dockerhub-nickname>/sample-backend"
+host: 
+  ssh_entry: "user@host"
+  location: "~/apps/sample"
