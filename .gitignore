@@ -1,2 +1,4 @@
 # rubymine local config
 .idea
+# gem builds
+mr-shipper-*.gem
