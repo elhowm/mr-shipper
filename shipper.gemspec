@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |specs|
-  specs.name        = 'mr_shipper'
+  specs.name        = 'mr-shipper'
   specs.version     = '0.0.1'
   specs.date        = '2019-06-19'
   specs.summary     = 'Docker shipping'
