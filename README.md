@@ -26,7 +26,13 @@ host:
 
 ## Use
 
+To ship all services in your `shipper.yml`
+
 `$ ship`
+
+To specify the list of services which need to be shipped
+
+`$ ship frontend super_api ...`
 
 And so.. that's all for now. 
 To be expanded with more cooler configurations for different hosts and so on..

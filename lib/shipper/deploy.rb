@@ -2,9 +2,10 @@
 
 module Shipper
   class Deploy
-    attr_reader :config
+    attr_reader :config, :specified_services
 
-    def initialize
+    def initialize(specified_services = nil)
+      @specified_services = specified_services
       @config = Shipper::Config.instance
     end
 
@@ -30,9 +31,13 @@ module Shipper
     end
 
     def load_services
-      config.services.map do |name, config|
-        ::Shipper::Service.new(name, config)
-      end
+      config.services
+            .select { |name, _| !service_ignored?(name) }
+            .map { |name, config| ::Shipper::Service.new(name, config) }
+    end
+
+    def service_ignored?(name)
+      specified_services && !specified_services.include?(name.to_s)
     end
 
     def logger
