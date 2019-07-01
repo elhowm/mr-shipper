@@ -34,8 +34,11 @@ module Shipper
       logger.bold("Exec local '#{cmd}'")
 
       Dir.chdir(path) do
-        Open3.popen3(cmd) do |stdin, stdout, stderr|
+        Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
           logger.puts(stdout.gets)
+	        logger.puts(stderr.gets)
+
+	        wait_thr.value
         end
       end
     end
