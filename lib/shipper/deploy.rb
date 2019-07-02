@@ -4,9 +4,9 @@ module Shipper
   class Deploy
     attr_reader :config, :specified_services
 
-    def initialize(specified_services = nil)
+    def initialize(config, specified_services = nil)
+      @config = config
       @specified_services = specified_services
-      @config = Shipper::Config.instance
     end
 
     def perform

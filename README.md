@@ -34,5 +34,9 @@ To specify the list of services which need to be shipped
 
 `$ ship frontend super_api ...`
 
+To recreate containers on host
+
+`$ ship restart`
+
 And so.. that's all for now. 
 To be expanded with more cooler configurations for different hosts and so on..

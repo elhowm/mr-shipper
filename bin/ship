@@ -3,5 +3,4 @@
 
 require 'shipper'
 
-specified_services = ARGV.empty? ? nil : ARGV
-Shipper::Deploy.new(specified_services).perform
+Shipper::Run.new(ARGV).perform
