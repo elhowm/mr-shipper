@@ -11,8 +11,8 @@ Gem::Specification.new do |specs|
   specs.homepage    = 'https://rubygemspecs.org/gems/mr-shipper'
   specs.license     = 'MIT'
   specs.metadata    = {
-    'source_code_uri' => 'https://github.com/elhowm/shipper',
-    'documentation_uri' => 'https://github.com/elhowm/shipper'
+    'source_code_uri' => 'https://github.com/elhowm/mr-shipper',
+    'documentation_uri' => 'https://github.com/elhowm/mr-shipper'
   }
 
   specs.files = %w[

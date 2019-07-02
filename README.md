@@ -1,4 +1,4 @@
-# shipper
+# mr-shipper
 Easy going shipment for your docker-compose apps
 
 ## Install
