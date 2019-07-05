@@ -13,7 +13,7 @@ module Shipper
 
     def ship!
       executor.cd(path)
-      before_build.each { |cmd| exec(cmd) } if before_build
+      before_build&.each { |cmd| exec(cmd) }
       exec "docker build . -t #{repo}"
       exec "docker push #{repo}"
     end

@@ -25,7 +25,7 @@ module Shipper
     def exec_host(cmd)
       logger.bold("Exec host '#{cmd}'")
 
-      host_bash.exec!("cd #{path}; #{cmd}") do |channel, stream, data|
+      host_bash.exec!("cd #{path}; #{cmd}") do |_channel, _stream, data|
         logger.puts(data)
       end
     end
@@ -34,11 +34,11 @@ module Shipper
       logger.bold("Exec local '#{cmd}'")
 
       Dir.chdir(path) do
-        Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
+        Open3.popen3(cmd) do |_stdin, stdout, stderr, wait_thread|
           logger.puts(stdout.gets)
-	        logger.puts(stderr.gets)
+          logger.puts(stderr.gets)
 
-	        wait_thr.value
+          wait_thread.value
         end
       end
     end

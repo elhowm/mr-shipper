@@ -32,7 +32,7 @@ module Shipper
 
     def load_services
       config.services
-            .select { |name, _| !service_ignored?(name) }
+            .reject { |name, _| service_ignored?(name) }
             .map { |name, config| ::Shipper::Service.new(name, config) }
     end
 

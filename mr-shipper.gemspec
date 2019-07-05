@@ -27,6 +27,6 @@ Gem::Specification.new do |specs|
   ]
   specs.executables << 'ship'
 
-  specs.add_dependency 'net-ssh', '5.1'
   specs.add_dependency 'colorize', '0.8.1'
+  specs.add_dependency 'net-ssh', '5.1'
 end

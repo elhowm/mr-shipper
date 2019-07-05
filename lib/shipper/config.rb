@@ -9,7 +9,7 @@ module Shipper
     def initialize(config_path = nil)
       config_path ||= "#{Dir.pwd}/shipper.yml"
 
-      config = ::YAML::load_file(config_path)
+      config = ::YAML.load_file(config_path)
       super(config)
     end
   end
