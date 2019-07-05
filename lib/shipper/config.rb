@@ -6,10 +6,10 @@ require 'yaml'
 
 module Shipper
   class Config < ::OpenStruct
-    include Singleton
+    def initialize(config_path = nil)
+      config_path ||= "#{Dir.pwd}/shipper.yml"
 
-    def initialize
-      config = ::YAML::load_file("#{Dir.pwd}/shipper.yml")
+      config = ::YAML::load_file(config_path)
       super(config)
     end
   end

@@ -6,7 +6,7 @@ module Shipper
 
     def initialize(options)
       @options = options.empty? ? nil : options
-      @config = ::Shipper::Config.instance
+      @config = ::Shipper::Config.new
     end
 
     def perform
