@@ -1,3 +1,6 @@
+![build passing](https://travis-ci.org/elhowm/mr-shipper.svg)
+![mainability](https://api.codeclimate.com/v1/badges/7eaae5a0f936c94953b8/maintainability)
+
 # mr-shipper
 Easy going shipment for your docker-compose apps
 
