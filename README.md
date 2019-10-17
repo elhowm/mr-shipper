@@ -31,17 +31,19 @@ hosts:
 
 ## Use
 
-To ship all services in your `shipper.yml`
+- To ship all services in your `shipper.yml`
 
-`$ ship`
+  `$ ship`
 
-To specify the list of services which need to be shipped
+  Note: it ships production environment
 
-`$ ship frontend super_api ...`
+- To specify the list of services which need to be shipped
 
-To recreate containers on host
+  `$ ship production frontend super_api ...`
 
-`$ ship restart`
+- To recreate containers on host
+
+  `$ ship production restart`
 
 And so.. that's all for now. 
 To be expanded with more cooler configurations for different hosts and so on..
