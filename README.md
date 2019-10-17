@@ -14,17 +14,19 @@ You need to create your own `shipper.yml` file with the content similar to:
 
 ```yaml
 services:
-  frontend:
-    path: "../sample-fronted"
-    before_build:
-      - "yarn build"
-    repo: "<dockerhub-nickname>/sample-fronted"
-  backend:
-    path: "../sample-backend"
-    repo: "<dockerhub-nickname>/sample-backend"
-host: 
-  ssh_entry: "user@host"
-  location: "~/apps/sample"
+  production:
+    frontend:
+      path: "./sample-fronted"
+      before_build:
+        - "yarn build"
+      repo: "<dockerhub-nickname>/sample-fronted"
+    backend:
+      path: "./sample-backend"
+      repo: "<dockerhub-nickname>/sample-backend"
+hosts:
+  production:
+    ssh_entry: "user@host"
+    location: "~/apps/sample"
 ```
 
 ## Use

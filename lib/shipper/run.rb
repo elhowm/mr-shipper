@@ -5,8 +5,9 @@ module Shipper
     attr_reader :config, :options
 
     def initialize(options)
+      @config = ::Shipper::Config.new(env: options[0] || 'production')
       @options = options.empty? ? nil : options
-      @config = ::Shipper::Config.new
+      @options&.delete(0) # remove env
     end
 
     def perform

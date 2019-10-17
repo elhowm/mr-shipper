@@ -1,12 +1,26 @@
 services:
-  frontend:
-    path: "../sample-fronted"
-    before_build:
-      - "yarn build"
-    repo: "<dockerhub-nickname>/sample-fronted"
-  backend:
-    path: "../sample-backend"
-    repo: "<dockerhub-nickname>/sample-backend"
-host: 
-  ssh_entry: "user@host"
-  location: "~/apps/sample"
+  production:
+    frontend:
+      path: "./sample-fronted"
+      before_build:
+        - "yarn build"
+      repo: "<dockerhub-nickname>/sample-fronted"
+    backend:
+      path: "./sample-backend"
+      repo: "<dockerhub-nickname>/sample-backend"
+  demo:
+    frontend:
+      path: "./sample-fronted"
+      before_build:
+        - "yarn build"
+      repo: "<dockerhub-nickname>/sample-fronted-demo"
+    backend:
+      path: "./sample-backend"
+      repo: "<dockerhub-nickname>/sample-backend-demo"
+hosts:
+  production:
+    ssh_entry: "user@host1"
+    location: "~/apps/sample"
+  demo:
+    ssh_entry: "user@host2"
+    location: "~/apps/sample"

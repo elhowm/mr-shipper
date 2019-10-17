@@ -1,12 +1,14 @@
 services:
-  frontend:
-    path: "./sample-fronted"
-    before_build:
-      - "yarn build"
-    repo: "dude/sample-fronted"
-  backend:
-    path: "./sample-backend"
-    repo: "dude/sample-backend"
-host: 
-  ssh_entry: "user@host"
-  location: "~/apps/sample"
+  production:
+    frontend:
+      path: "./sample-fronted"
+      before_build:
+        - "yarn build"
+      repo: "dude/sample-fronted"
+    backend:
+      path: "./sample-backend"
+      repo: "dude/sample-backend"
+hosts:
+  production:
+    ssh_entry: "user@host"
+    location: "~/apps/sample"

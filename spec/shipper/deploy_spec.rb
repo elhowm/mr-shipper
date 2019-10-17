@@ -6,7 +6,9 @@ describe Shipper::Deploy do
 
   let(:watcher) { Shipper::TestHelpers::Watcher.instance }
 
-  let(:config) { Shipper::Config.new("#{Dir.pwd}/spec/fixtures/shipper.yml") }
+  let(:config) do
+    Shipper::Config.new(config_path: "#{Dir.pwd}/spec/fixtures/shipper.yml")
+  end
   let(:services) { nil }
 
   context 'when services are not specified' do
