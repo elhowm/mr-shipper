@@ -20,6 +20,10 @@ module Shipper
       puts "# #{phrase}".bold.yellow
     end
 
+    def error(phrase)
+      puts "# #{phrase}".bold.red
+    end
+
     def puts(phrase)
       super(phrase)
     end

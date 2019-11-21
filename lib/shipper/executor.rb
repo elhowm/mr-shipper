@@ -34,17 +34,25 @@ module Shipper
       logger.bold("Exec local '#{cmd}'")
 
       Dir.chdir(path) do
-        Open3.popen3(cmd) do |_stdin, stdout, stderr, wait_thread|
-          logger.puts(stdout.gets)
-          logger.puts(stderr.gets)
+        status = Open3.popen3(cmd) do |_stdin, stdout, stderr, wait_thread|
+          logger.puts(stdout.read)
+          logger.puts(stderr.read)
 
           wait_thread.value
         end
+        fall_down!(cmd) unless status.exitstatus.zero?
       end
     end
 
     def logger
       ::Shipper::Logger.instance
+    end
+
+    def fall_down!(failed_cmd)
+      logger.error 'Command finished with non-zero code:'
+      logger.puts "'#{failed_cmd}'"
+      logger.puts 'halt.'
+      exit
     end
   end
 end
