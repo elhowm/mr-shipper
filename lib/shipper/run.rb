@@ -2,12 +2,14 @@
 
 module Shipper
   class Run
-    attr_reader :config, :options
+    attr_reader :config, :options, :env
+
+    COMMANDS = %w[restart].freeze
 
     def initialize(options)
-      @config = ::Shipper::Config.new(env: options[0] || 'production')
+      pop_env!(options)
+      @config = ::Shipper::Config.new(env: env)
       @options = options.empty? ? nil : options
-      @options&.delete(0) # remove env
     end
 
     def perform
@@ -22,6 +24,14 @@ module Shipper
 
     def restart?
       options&.size == 1 && options[0] == 'restart'
+    end
+
+    def pop_env!(options)
+      if options.empty? || COMMANDS.include?(options[0])
+        @env = 'production'
+      else
+        @env = options.delete_at(0)
+      end
     end
   end
 end
