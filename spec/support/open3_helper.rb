@@ -9,5 +9,6 @@ Open3.class_eval do
 
     yield(stdin, stdout, stderr, wait_thr)
     Shipper::TestHelpers::Watcher.instance.log_local!(cmd)
+    OpenStruct.new(exitstatus: 0)
   end
 end
