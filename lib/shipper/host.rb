@@ -17,7 +17,7 @@ module Shipper
     end
 
     def restart!(pull_changes: false)
-      ::Net::SSH.start(host, user, port: port || 22) do |ssh|
+      ::Net::SSH.start(host, user, port: port) do |ssh|
         load_executor(ssh)
         executor.cd location
         exec 'docker-compose pull' if pull_changes
