@@ -2,10 +2,12 @@
 
 module Shipper
   class Host
-    attr_accessor :user, :host, :location, :executor
+    attr_accessor :user, :host, :port, :location, :executor
 
     def initialize(options)
-      @user, @host = options['ssh_entry'].split('@')
+      @user, full_host = options['ssh_entry'].split('@')
+      @host, @port = full_host.split(':')
+
       @location = options['location']
       @executor = nil
     end
@@ -15,9 +17,8 @@ module Shipper
     end
 
     def restart!(pull_changes: false)
-      ::Net::SSH.start(host, user) do |ssh|
+      ::Net::SSH.start(host, user, port: port || 22) do |ssh|
         load_executor(ssh)
-
         executor.cd location
         exec 'docker-compose pull' if pull_changes
         exec 'docker-compose down'
