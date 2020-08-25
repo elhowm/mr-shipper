@@ -12,7 +12,7 @@ module Shipper
 end
 
 Net::SSH.class_eval do
-  def self.start(host, user)
+  def self.start(host, user, options={})
     yield(Shipper::TestHelpers::HostSSH.new)
   end
 end
