@@ -34,9 +34,8 @@ module Shipper
       logger.bold("Exec local '#{cmd}'")
 
       Dir.chdir(path) do
-        status = Open3.popen3(cmd) do |_stdin, stdout, stderr, wait_thread|
-          logger.puts(stdout.read)
-          logger.puts(stderr.read)
+        status = Open3.popen2e(cmd) do |_stdin, stdout, wait_thread|
+          stdout.each_line { |line| logger.puts(line) }
 
           wait_thread.value
         end
