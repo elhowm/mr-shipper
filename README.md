@@ -45,7 +45,8 @@ hosts:
 
   `$ ship production restart`
 
-- To specify custom ssh port use
+- To specify custom ssh port use.
+
   `ssh_entry: "user@host:123`
 
 And so.. that's all for now.
