@@ -1,5 +1,6 @@
 ![build passing](https://travis-ci.org/elhowm/mr-shipper.svg)
 ![mainability](https://api.codeclimate.com/v1/badges/7eaae5a0f936c94953b8/maintainability)
+[![codebeat badge](https://codebeat.co/badges/8a95de4f-790e-4b40-a2c3-1985549dd5b7)](https://codebeat.co/projects/github-com-elhowm-mr-shipper-master)
 
 # mr-shipper
 Easy going shipment for your docker-compose apps
@@ -45,7 +46,7 @@ hosts:
 
   `$ ship production restart`
 
-- To specify custom ssh port use.
+- To specify custom ssh port
 
   `ssh_entry: "user@host:123`
 
