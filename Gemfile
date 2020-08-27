@@ -9,4 +9,5 @@ gem 'net-ssh', '5.1'
 group :development, :test do
   gem 'rspec', '~> 3.8'
   gem 'rubocop', '~> 0.7'
+  gem 'simplecov', '~> 0.19'
 end

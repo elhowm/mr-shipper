@@ -2,3 +2,5 @@
 .idea
 # gem builds
 mr-shipper-*.gem
+# coverage info
+coverage
