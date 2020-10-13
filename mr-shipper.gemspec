@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |specs|
   specs.name        = 'mr-shipper'
-  specs.version     = '0.0.8'
+  specs.version     = '0.0.9'
   specs.date        = '2019-06-19'
   specs.summary     = 'Docker shipping'
   specs.description = 'The simple way to deploy docker-compose based apps'

@@ -7,7 +7,7 @@ module Shipper
     def initialize(options)
       @user, full_host = options['ssh_entry'].split('@')
       @host, @port = full_host.split(':')
-      @post ||= 22
+      @port = @port || 22
 
       @location = options['location']
       @executor = nil

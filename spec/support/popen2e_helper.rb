@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Open3.class_eval do
-  def self.popen3(cmd)
+  def self.popen2e(cmd)
     stdin = OpenStruct.new
     stdout = OpenStruct.new(gets: true)
     stderr = OpenStruct.new(gets: true)
@@ -12,3 +12,4 @@ Open3.class_eval do
     OpenStruct.new(exitstatus: 0)
   end
 end
+
