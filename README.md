@@ -21,6 +21,8 @@ services:
       before_build:
         - "yarn build"
       repo: "<dockerhub-nickname>/sample-fronted"
+      args:
+        foo: "bar"
     backend:
       path: "./sample-backend"
       repo: "<dockerhub-nickname>/sample-backend"

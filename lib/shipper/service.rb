@@ -2,23 +2,29 @@
 
 module Shipper
   class Service
-    attr_reader :name, :path, :before_build, :repo
+    attr_reader :name, :options, :path
 
     def initialize(name, options)
       @name = name
+      @options = options
       @path = "#{Dir.pwd}/#{options['path']}"
-      @before_build = options['before_build']
-      @repo = options['repo']
     end
 
     def ship!
       executor.cd(path)
-      before_build&.each { |cmd| exec(cmd) }
-      exec "docker build . -t #{repo}"
-      exec "docker push #{repo}"
+      options['before_build']&.each { |cmd| exec(cmd) }
+      exec "docker build . -t #{options.fetch('repo')} #{build_args}".strip
+      exec "docker push #{options.fetch('repo')}"
     end
 
     private
+
+    def build_args
+      return nil if options['args'].nil?
+
+      options['args'].map { |key, value| "--build-arg #{key}=#{value}" }
+                     .join(' ')
+    end
 
     def exec(cmd)
       executor.exec(cmd)

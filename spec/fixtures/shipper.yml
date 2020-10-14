@@ -5,6 +5,8 @@ services:
       before_build:
         - "yarn build"
       repo: "dude/sample-fronted"
+      args:
+        foo: 'bar'
     backend:
       path: "./sample-backend"
       repo: "dude/sample-backend"

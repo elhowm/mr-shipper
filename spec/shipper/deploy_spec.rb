@@ -19,7 +19,7 @@ describe Shipper::Deploy do
         'cd ./sample-fronted',
         'yarn build',
         'cd ./sample-fronted',
-        'docker build . -t dude/sample-fronted',
+        'docker build . -t dude/sample-fronted --build-arg foo=bar',
         'cd ./sample-fronted',
         'docker push dude/sample-fronted',
         'cd ./sample-backend',
@@ -45,7 +45,7 @@ describe Shipper::Deploy do
         'cd ./sample-fronted',
         'yarn build',
         'cd ./sample-fronted',
-        'docker build . -t dude/sample-fronted',
+        'docker build . -t dude/sample-fronted --build-arg foo=bar',
         'cd ./sample-fronted',
         'docker push dude/sample-fronted'
       ]
