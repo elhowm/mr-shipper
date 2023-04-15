@@ -2,8 +2,8 @@
 
 Gem::Specification.new do |specs|
   specs.name        = 'mr-shipper'
-  specs.version     = '0.1.0'
-  specs.date        = '2019-06-19'
+  specs.version     = '0.1.1'
+  specs.date        = '2023-04-12'
   specs.summary     = 'Docker shipping'
   specs.description = 'The simple way to deploy docker-compose based apps'
   specs.authors     = ['Rostyslav Safonov']
@@ -27,6 +27,6 @@ Gem::Specification.new do |specs|
   ]
   specs.executables << 'ship'
 
-  specs.add_dependency 'colorize', '0.8.1'
-  specs.add_dependency 'net-ssh', '5.1'
+  specs.add_dependency 'colorize', '~> 0.8'
+  specs.add_dependency 'net-ssh', '~> 7.1'
 end
